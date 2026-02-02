@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   so_long.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: esaleh <esaleh@student.42berlin.de>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/02/02 07:47:00 by esaleh            #+#    #+#             */
+/*   Updated: 2026/02/02 07:47:00 by esaleh           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
@@ -24,7 +36,7 @@ typedef struct s_img
 	void	*img;
 	int		w;
 	int		h;
-} 	t_img;
+}	t_img;
 
 typedef struct s_game
 {
@@ -45,7 +57,7 @@ typedef struct s_game
 	t_img	player;
 	t_img	exit;
 	t_img	collect;
-} 	t_game;
+}	t_game;
 
 typedef struct s_buf
 {
