@@ -25,21 +25,18 @@ static void	try_move(t_game *game, int dx, int dy)
 	tile = game->map[ny][nx];
 	if (tile == '1')
 		return ;
-	game->moves++;
-	print_move_count(game->moves);
 	if (tile == 'C')
 	{
 		game->collected++;
 		game->map[ny][nx] = '0';
 	}
+	game->moves++;
+	print_move_count(game->moves);
 	game->player_x = nx;
 	game->player_y = ny;
-	if (tile == 'E' && game->collected == game->collectibles)
-	{
-		render_map(game);
-		handle_close(game);
-	}
 	render_map(game);
+	if (tile == 'E' && game->collected == game->collectibles)
+		handle_close(game);
 }
 
 int	handle_key(int keycode, t_game *game)
