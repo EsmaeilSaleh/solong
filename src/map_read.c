@@ -28,7 +28,7 @@ static int	validate_content(const char *content)
 	return (1);
 }
 
-static int	validate_map(char **map, int *height)
+static int	validate_map_lines(char **map, int *height)
 {
 	int	i;
 
@@ -52,7 +52,7 @@ char	**split_map(const char *content, int *height)
 	map = ft_split(content, '\n');
 	if (!map)
 		return (NULL);
-	if (!validate_map(map, height))
+	if (!validate_map_lines(map, height))
 	{
 		free_map(map);
 		return (NULL);
