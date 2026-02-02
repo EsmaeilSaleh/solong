@@ -71,10 +71,18 @@ typedef struct s_bfs
 	int		max;
 }	t_bfs;
 
+typedef struct s_counts
+{
+	int	p;
+	int	e;
+	int	c;
+}	t_counts;
+
 void	error_exit(const char *msg, t_game *game);
 void	init_game(t_game *game);
 
 int		is_ber_file(const char *path);
+int		is_valid_char(char c);
 char	*read_file(const char *path);
 char	**split_map(const char *content, int *height);
 void	free_map(char **map);

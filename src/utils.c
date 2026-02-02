@@ -33,6 +33,11 @@ int	is_ber_file(const char *path)
 	return (ft_strncmp(path + len - 4, ".ber", 4) == 0);
 }
 
+int	is_valid_char(char c)
+{
+	return (c == '0' || c == '1' || c == 'C' || c == 'E' || c == 'P');
+}
+
 void	print_move_count(int moves)
 {
 	ft_putstr_fd("Moves: ", 1);
