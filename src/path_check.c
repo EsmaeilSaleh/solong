@@ -6,7 +6,7 @@
 /*   By: esaleh <esaleh@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/02 07:48:26 by esaleh            #+#    #+#             */
-/*   Updated: 2026/02/02 08:17:49 by esaleh           ###   ########.fr       */
+/*   Updated: 2026/02/02 08:18:24 by esaleh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,11 @@ static void	init_bfs(t_game *game, t_bfs *bfs)
 
 static void	visit_neighbors(t_game *game, t_bfs *bfs, t_point cur)
 {
+	static const int	dx[4] = {1, -1, 0, 0};
 	int				i;
 	int				nx;
 	int				ny;
-	static const int		dx[4] = {1, -1, 0, 0};
-	static const int		dy[4] = {0, 0, 1, -1};
+	static const int	dy[4] = {0, 0, 1, -1};
 
 	i = 0;
 	while (i < 4)
