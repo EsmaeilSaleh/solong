@@ -54,6 +54,23 @@ typedef struct s_buf
 	size_t	cap;
 }	t_buf;
 
+typedef struct s_point
+{
+	int	x;
+	int	y;
+}	t_point;
+
+typedef struct s_bfs
+{
+	char	*visited;
+	t_point	*queue;
+	int		head;
+	int		tail;
+	int		reachable_c;
+	int		reachable_e;
+	int		max;
+}	t_bfs;
+
 void	error_exit(const char *msg, t_game *game);
 void	init_game(t_game *game);
 
