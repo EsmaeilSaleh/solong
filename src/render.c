@@ -25,13 +25,13 @@ static void	load_image(t_game *game, t_img *img, const char *path)
 		error_exit("Failed to load texture", game);
 }
 
-static void draw_moves(t_game *game)
+static void	draw_moves(t_game *game)
 {
 	char	*num;
 	char	*label;
 
 	num = ft_itoa(game->moves);
-	if(!num)
+	if (!num)
 		return ;
 	label = ft_strjoin("Moves: ", num);
 	free(num);
@@ -39,6 +39,28 @@ static void draw_moves(t_game *game)
 		return ;
 	mlx_string_put(game->mlx, game->win, 10, 20, 0xffffff, label);
 	free(label);
+}
+
+static void	render_row(t_game *game, int y)
+{
+	int	x;
+
+	x = 0;
+	while (x < game->width)
+	{
+		mlx_put_image_to_window(game->mlx, game->win,
+			game->floor.img, x * TILE_SIZE, y * TILE_SIZE);
+		if (game->map[y][x] == '1')
+			mlx_put_image_to_window(game->mlx, game->win,
+				game->wall.img, x * TILE_SIZE, y * TILE_SIZE);
+		else if (game->map[y][x] == 'C')
+			mlx_put_image_to_window(game->mlx, game->win,
+				game->collect.img, x * TILE_SIZE, y * TILE_SIZE);
+		else if (game->map[y][x] == 'E')
+			mlx_put_image_to_window(game->mlx, game->win,
+				game->exit.img, x * TILE_SIZE, y * TILE_SIZE);
+		x++;
+	}
 }
 
 void	load_textures(t_game *game)
@@ -52,28 +74,12 @@ void	load_textures(t_game *game)
 
 void	render_map(t_game *game)
 {
-	int	x;
 	int	y;
 
 	y = 0;
 	while (y < game->height)
 	{
-		x = 0;
-		while (x < game->width)
-		{
-			mlx_put_image_to_window(game->mlx, game->win,
-				game->floor.img, x * TILE_SIZE, y * TILE_SIZE);
-			if (game->map[y][x] == '1')
-				mlx_put_image_to_window(game->mlx, game->win,
-					game->wall.img, x * TILE_SIZE, y * TILE_SIZE);
-			else if (game->map[y][x] == 'C')
-				mlx_put_image_to_window(game->mlx, game->win,
-					game->collect.img, x * TILE_SIZE, y * TILE_SIZE);
-			else if (game->map[y][x] == 'E')
-				mlx_put_image_to_window(game->mlx, game->win,
-					game->exit.img, x * TILE_SIZE, y * TILE_SIZE);
-			x++;
-		}
+		render_row(game, y);
 		y++;
 	}
 	mlx_put_image_to_window(game->mlx, game->win,
