@@ -47,6 +47,13 @@ typedef struct s_game
 	t_img	collect;
 } 	t_game;
 
+typedef struct s_buf
+{
+	char	*data;
+	size_t	len;
+	size_t	cap;
+}	t_buf;
+
 void	error_exit(const char *msg, t_game *game);
 void	init_game(t_game *game);
 

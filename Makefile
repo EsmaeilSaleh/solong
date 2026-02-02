@@ -5,6 +5,7 @@ CFLAGS := -Wall -Wextra -Werror
 
 SRC := \
 	src/main.c \
+	src/read_file.c \
 	src/map_read.c \
 	src/map_validate.c \
 	src/path_check.c \
